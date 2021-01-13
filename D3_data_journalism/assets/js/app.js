@@ -36,11 +36,11 @@ console.log(censusData)
         // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
-      .domain([5, d3.max(censusData, d => d.poverty)])
+      .domain([d3.min(censusData, d => d.poverty), d3.max(censusData, d => d.poverty)])
       .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(censusData, d => d.healthcare)])
+      .domain([d3.min(censusData, d => d.healthcare), d3.max(censusData, d => d.healthcare)])
       .range([height, 0]);
 
 
