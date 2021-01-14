@@ -221,32 +221,33 @@ if (err) throw err;
      .attr("transform", `translate(${0 - margin.left/4}, ${(height/2)})`);
 
     var healthcareLabel = ylabelsGroup.append("text")
-    .attr("x", 0)
-    .attr("y", 25)
-    .attr("value", "healthcare") // value to grab for event listener
-    .classed("active", true)
-    .text("Lacks Healthcare (%)");
-
-    var obesityLabel = ylabelsGroup.append("text")
-    .attr("x", 0)
-    .attr("y", 50)
-    .attr("value", "obesity") // value to grab for event listener
-    .classed("inactive", true)
-    .text(" Obesity (%)");
-
-    var smokesLabel = ylabelsGroup.append("text")
-    .attr("x", 0)
-    .attr("y", 75)
-    .attr("value", "smokes") // value to grab for event listener
-    .classed("inactive", true)
-    .text("Smoking (%)");
-
-
-  // append y axis
-  chartGroup.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left)
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .classed("axis-text", true)
-    .text("Number of Billboard 500 Hits");
+    .attr("value", "healthcare") // value to grab for event listener
+    .classed("active", true)
+    .text("Lacks Healthcare (%)");
+
+    var obesityLabel = ylabelsGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("axis-text", true)
+    .attr("value", "obesity") // value to grab for event listener
+    .classed("inactive", true)
+    .text(" Obesity (%)");
+
+    var smokesLabel = ylabelsGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("axis-text", true)
+    .attr("value", "smokes") // value to grab for event listener
+    .classed("inactive", true)
+    .text("Smoking (%)");
+
+
