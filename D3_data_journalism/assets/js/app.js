@@ -70,6 +70,7 @@ console.log(censusData)
     .attr("fill", "blue")
     .attr("opacity", ".5");
 
+    // append state abbr to circle groups 
     var textGroup = chartGroup.selectAll(".stateText")
     .data(censusData)
     .enter()
@@ -80,9 +81,6 @@ console.log(censusData)
     .attr("dy", 3)
     .attr("font-size", "10px")
     .text(function(d){return d.abbr});
-
-
-
 
     // Step 6: Initialize tool tip
     // ==============================
