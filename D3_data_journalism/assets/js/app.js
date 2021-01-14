@@ -33,7 +33,7 @@ console.log(censusData)
         data.healthcare = +data.healthcare;
       });
   
-        // Step 2: Create scale functions
+    // Step 2: Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
       .domain([d3.min(censusData, d => d.poverty), d3.max(censusData, d => d.poverty)])
@@ -91,7 +91,7 @@ console.log(censusData)
         return (`${d.state}<br>Poverty %: ${d.poverty}<br>Healtcare %: ${d.healthcare}`);
       });
 
-        // Step 7: Create tooltip in the chart
+    // Step 7: Create tooltip in the chart
     // ==============================
     chartGroup.call(toolTip);
 
@@ -118,8 +118,7 @@ console.log(censusData)
       .attr("transform", `translate(${width / 2}, ${height + margin.top + 30})`)
       .attr("class", "axisText")
       .text("Poverty %");
-  }).catch(function(error) {
+    }).catch(function(error) {
     console.log(error);
-
 
 });
