@@ -100,7 +100,8 @@ console.log(censusData)
     circlesGroup.on("click", function(data) {
       toolTip.show(data, this);
     })
-      // onmouseout event
+      
+    // onmouseout event
       .on("mouseout", function(data, index) {
         toolTip.hide(data);
       });
