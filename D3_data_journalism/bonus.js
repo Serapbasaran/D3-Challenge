@@ -49,7 +49,7 @@ function yScale(censusData, chosenYAxis) {
     }
 
   // function used for updating xAxis var upon click on axis label
-function renderAxes(newXScale, xAxis) {
+function renderXAxes(newXScale, xAxis) {
     var bottomAxis = d3.axisBottom(newXScale);
   
     xAxis.transition()
@@ -60,7 +60,7 @@ function renderAxes(newXScale, xAxis) {
   }
 
     // function used for updating yAxis var upon click on axis label
-function renderAxes(newYScale, yAxis) {
+function renderYAxes(newYScale, yAxis) {
     var leftAxis = d3.axisleft(newYScale);
   
     xAxis.transition()
@@ -151,9 +151,7 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     var xLinearScale = xScale(censusData, chosenXAxis);
   
     // Create y scale function
-    var yLinearScale = d3.scaleLinear()
-      .domain([0, d3.max(hairData, d => d.num_hits)])
-      .range([height, 0]);
+    var yLinearScale = yScale(censusData, chosenYAxis);
   
     // Create initial axis functions
     var bottomAxis = d3.axisBottom(xLinearScale);
@@ -167,5 +165,29 @@ function updateToolTip(chosenXAxis, circlesGroup) {
   
     // append y axis
     chartGroup.append("g")
-      .call(leftAxis);
+    .classed("Y-axis", true)
+    .call(leftAxis);
   
+  // append initial circles
+  var circlesGroup = chartGroup.selectAll("circle")
+    .data(censusData)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xLinearScale(d[chosenXAxis]))
+    .attr("cy", d => yLinearScale(d[chosenYAxis]))
+    .attr("r", 12)
+    .attr("fill", "blue")
+    .attr("opacity", ".5");
+
+  // append state abbr to circle groups 
+    var textGroup = chartGroup.selectAll(".stateText")
+    .data(censusData)
+    .enter()
+    .append("text")
+    .classed("stateText", true)
+    .attr("x", d => xLinearScale(d[chosenXAxis]))
+    .attr("y", d => yLinearScale(d[chosenYAxis]))
+    .attr("dy", 3)
+    .attr("font-size", "10px")
+    .text(function(d){return d.abbr});
+
