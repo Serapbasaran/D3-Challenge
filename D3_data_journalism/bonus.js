@@ -191,3 +191,41 @@ function updateToolTip(chosenXAxis, circlesGroup) {
     .attr("font-size", "10px")
     .text(function(d){return d.abbr});
 
+  // Create group for two x-axis labels
+  var labelsGroup = chartGroup.append("g")
+    .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+  var povertyLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 25)
+    .attr("value", "poverty") // value to grab for event listener
+    .classed("active", true)
+    .text("In Poverty (%)");
+
+  var incomeLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 50)
+    .attr("value", "income") // value to grab for event listener
+    .classed("inactive", true)
+    .text(" Avg Household Income");
+
+  var ageLabel = labelsGroup.append("text")
+    .attr("x", 0)
+    .attr("y", 75)
+    .attr("value", "age") // value to grab for event listener
+    .classed("inactive", true)
+    .text(" Avg Household Income");
+
+    
+
+
+
+
+  // append y axis
+  chartGroup.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .classed("axis-text", true)
+    .text("Number of Billboard 500 Hits");
