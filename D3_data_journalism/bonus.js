@@ -220,26 +220,26 @@ if (err) throw err;
      var yLabelsGroup = chartGroup.append("g")
      .attr("transform", `translate(${0 - margin.left/4}, ${(height/2)})`);
 
-    var povertyLabel = ylabelsGroup.append("text")
+    var healthcareLabel = ylabelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 25)
-    .attr("value", "poverty") // value to grab for event listener
+    .attr("value", "healthcare") // value to grab for event listener
     .classed("active", true)
-    .text("In Poverty (%)");
+    .text("Lacks Healthcare (%)");
 
-    var incomeLabel = labelsGroup.append("text")
+    var obesityLabel = ylabelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 50)
-    .attr("value", "income") // value to grab for event listener
+    .attr("value", "obesity") // value to grab for event listener
     .classed("inactive", true)
-    .text(" Avg Household Income");
+    .text(" Obesity (%)");
 
-    var ageLabel = labelsGroup.append("text")
+    var smokesLabel = ylabelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 75)
-    .attr("value", "age") // value to grab for event listener
+    .attr("value", "smokes") // value to grab for event listener
     .classed("inactive", true)
-    .text(" Avg Household Income");
+    .text("Smoking (%)");
 
 
   // append y axis
