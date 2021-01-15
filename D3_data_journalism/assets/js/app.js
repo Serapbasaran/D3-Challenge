@@ -66,10 +66,10 @@ console.log(censusData)
     .data(censusData)
     .enter()
     .append("circle")
+    .classed("stateCircle", true)
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.healthcare))
-    .attr("r", "15")
-    .attr("fill", "blue")
+    .attr("r", "12")
     .attr("opacity", ".5");
 
     // append state abbr to circle groups 
@@ -87,7 +87,7 @@ console.log(censusData)
     // Step 6: Initialize tool tip
     // ==============================
     var toolTip = d3.tip()
-      .attr("class", "tooltip")
+      .attr("class", "d3-tip")
       .offset([80, -60])
       .html(function(d) {
         return (`${d.state}<br>Poverty %: ${d.poverty}<br>Healtcare %: ${d.healthcare}`);
