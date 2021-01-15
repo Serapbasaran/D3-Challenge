@@ -216,7 +216,7 @@ if (err) throw err;
     .classed("inactive", true)
     .text(" Avg Household Income");
     
-     // Create groups for three different x-axis labels
+     // Create groups for three different y-axis labels
      var yLabelsGroup = chartGroup.append("g")
      .attr("transform", `translate(${0 - margin.left/4}, ${(height/2)})`);
 
