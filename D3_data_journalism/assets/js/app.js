@@ -88,9 +88,9 @@ console.log(censusData)
     // ==============================
     var toolTip = d3.tip()
       .attr("class", "d3-tip")
-      .offset([80, -60])
+      .offset([-8, 0])
       .html(function(d) {
-        return (`${d.state}<br>Poverty %: ${d.poverty}<br>Healtcare %: ${d.healthcare}`);
+        return (`${d.state}<br> In Poverty %: ${d.poverty}<br>No Healtcare %: ${d.healthcare}`);
       });
 
     // Step 7: Create tooltip in the chart
@@ -99,15 +99,10 @@ console.log(censusData)
 
     // Step 8: Create event listeners to display and hide the tooltip
     // ==============================
-    circlesGroup.on("click", function(data) {
-      toolTip.show(data, this);
-    })
+    circlesGroup.on("mouseover", toolTip.show)
+                .on("mouseout", toolTip.hide);
       
-    // onmouseout event
-      .on("mouseout", function(data, index) {
-        toolTip.hide(data);
-      });
-
+    
     // Create axes labels
     chartGroup.append("text")
     .attr("transform", "rotate(-90)")
