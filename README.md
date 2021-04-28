@@ -5,4 +5,4 @@ based on the dataset from from the U.S. Census Bureau and the Behavioral Risk Fa
 
 # Basic D3 Dabbler (Static Scatter Plot)
 
-! [alt text] (https://github.com/Serapbasaran/D3-Challenge/blob/main/D3_data_journalism/assets/Images/4-scatter.png)
+![alt text](https://github.com/Serapbasaran/D3-Challenge/blob/main/D3_data_journalism/assets/Images/4-scatter.png)
